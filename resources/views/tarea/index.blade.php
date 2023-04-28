@@ -38,11 +38,11 @@
                                     <tr>
                                         <th>No</th>
                                         
+										<th>Título</th>
 										<th>Descripcion</th>
 										<th>Estado</th>
-										<th>User Id</th>
-										<th>Proyecto Id</th>
 										<th>Fecha Limite</th>
+										<th>Creador</th>
 
                                         <th></th>
                                     </tr>
@@ -52,11 +52,11 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
+											<td>{{ $tarea->proyecto_id }}</td>
 											<td>{{ $tarea->descripcion }}</td>
 											<td>{{ $tarea->estado }}</td>
-											<td>{{ $tarea->user_id }}</td>
-											<td>{{ $tarea->proyecto_id }}</td>
 											<td>{{ $tarea->fecha_limite }}</td>
+											<td>{{ $tarea->user_id }}</td>
 
                                             <td>
                                                 <form action="{{ route('tareas.destroy',$tarea->id) }}" method="POST">
