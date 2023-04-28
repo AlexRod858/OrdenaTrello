@@ -13,14 +13,14 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">{{ __('Update') }} Proyecto</span>
+                        <span class="card-title">{{ __('Editar') }} Proyecto</span>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('proyectos.update', $proyecto->id) }}"  role="form" enctype="multipart/form-data">
                             {{ method_field('PATCH') }}
                             @csrf
 
-                            @include('proyecto.form')
+                            @include('proyecto.form_edit')
 
                         </form>
                     </div>

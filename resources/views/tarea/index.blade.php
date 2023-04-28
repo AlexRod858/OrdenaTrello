@@ -17,8 +17,10 @@
                             </span>
 
                              <div class="float-right">
-                                <a href="{{ route('tareas.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
+                                {{ Form::label('Código del proyecto') }}
+                                <input type="text">  
+                              <a href="#" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                  {{ __('Buscar') }}
                                 </a>
                               </div>
                         </div>
