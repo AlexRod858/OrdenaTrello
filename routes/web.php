@@ -30,3 +30,6 @@ Route::middleware(['auth'])->group(function () {
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/tarea/create/{proyecto_id}', [TareaController::class, 'create'])->name('tarea.create');
+// 
+Route::post('/tareas/buscar', [App\Http\Controllers\TareaController::class, 'buscar'])->name('tareas.buscar');
+//  
