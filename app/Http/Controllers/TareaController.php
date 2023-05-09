@@ -22,13 +22,13 @@ class TareaController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * $tareas->perPage());
     }
 
-    public function buscar()
-    {
-        $tareas = Tarea::paginate();
+    // public function buscar()
+    // {
+    //     $tareas = Tarea::paginate();
 
-        return view('tarea.index', compact('tareas'))
-        ->with('i', (request()->input('page', 1) - 1) * $tareas->perPage());
-    }
+    //     return view('tarea.index', compact('tareas'))
+    //     ->with('i', (request()->input('page', 1) - 1) * $tareas->perPage());
+    // }
     
 
 
@@ -54,6 +54,8 @@ class TareaController extends Controller
         return redirect()->route('proyectos.show', ['proyecto' => $tarea->proyecto_id])
             ->with('success', 'Tarea created successfully.');
     }
+
+ 
 
 
     public function show($id)

@@ -31,6 +31,7 @@
 
                     <div class="card-body">
                         <div class="table-responsive">
+                            @if (count($proyectos) > 0)
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
@@ -51,7 +52,7 @@
 											<td>{{ $proyecto->titulo }}</td>
 											<td>{{ $proyecto->id }}</td>
 											<td>{{ $proyecto->created_at }}</td>
-                                            <td>Arreglar esto</td>
+                                            <td>{{$proyecto->tareas->count()}}</td>
                                             <td>
                                                 <form action="{{ route('proyectos.destroy',$proyecto->id) }}" method="POST">
                                                     <a class="btn btn-sm btn-primary " href="{{ route('proyectos.show',$proyecto->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Abrir') }}</a>
@@ -65,6 +66,9 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                            @else
+            <p>No hay proyectos aún.</p>
+        @endif
                         </div>
                     </div>
                 </div>

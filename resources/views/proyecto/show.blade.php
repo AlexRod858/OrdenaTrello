@@ -76,7 +76,7 @@
                                 <td>{{ $tarea->descripcion }}</td>
                                 <td>{{ $tarea->estado }}</td>
                                 <td>{{ $tarea->fecha_limite }}</td>
-                                <td>{{ $tarea->user_id }}</td>
+                                <td>{{ $tarea->user->name }}</td>
                                 <td>
                                     <form action="{{ route('tareas.destroy', $tarea->id) }}" method="POST">
                                         @csrf
