@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Tarea;
 use App\Models\Proyecto;
+// 
+use App\Models\User;
+// 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -29,12 +32,17 @@ class TareaController extends Controller
     
 
 
+    
     public function create($proyecto_id)
     {
         $tarea = new Tarea();
         $tarea->proyecto_id = $proyecto_id;
-        return view('tarea.create', compact('tarea', 'proyecto_id'));
+    
+        $users = User::all(); // Obtener todos los usuarios
+    
+        return view('tarea.create', compact('tarea', 'proyecto_id', 'users'));
     }
+    
 
 
     public function store(Request $request)

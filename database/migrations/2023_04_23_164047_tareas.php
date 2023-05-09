@@ -22,10 +22,10 @@ return new class extends Migration
             $table->timestamps();
         
             // Restricción de clave foránea
-            $table->foreign('user_id')
-                  ->references('id')
-                  ->on('users')
-                  ->onDelete('cascade');
+            // $table->foreign('user_id')
+            //       ->references('id')
+            //       ->on('users')
+            //       ->onDelete('cascade');
 
             $table->foreign('proyecto_id')
                   ->references('id')

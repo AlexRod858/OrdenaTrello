@@ -25,7 +25,7 @@ class Proyecto extends Model
     static $rules = [
 		'titulo' => 'required',
 		'user_id' => 'required',
-		'codigo' => 'required',
+		// 'codigo' => 'required',
     ];
 
     protected $perPage = 20;
@@ -35,7 +35,7 @@ class Proyecto extends Model
      *
      * @var array
      */
-    protected $fillable = ['titulo','user_id','codigo'];
+    protected $fillable = ['titulo','user_id'];
 
 
     /**

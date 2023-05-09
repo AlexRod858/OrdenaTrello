@@ -38,8 +38,8 @@
                                         
 										<th>Titulo</th>
 										<th>Id del proyecto</th>
-										<th>Codigo</th>
-
+										<th>Fecha Creación</th>
+                                        <th>Nº Tareas</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -50,8 +50,8 @@
                                             
 											<td>{{ $proyecto->titulo }}</td>
 											<td>{{ $proyecto->id }}</td>
-											<td>{{ $proyecto->codigo }}</td>
-
+											<td>{{ $proyecto->created_at }}</td>
+                                            <td>Arreglar esto</td>
                                             <td>
                                                 <form action="{{ route('proyectos.destroy',$proyecto->id) }}" method="POST">
                                                     <a class="btn btn-sm btn-primary " href="{{ route('proyectos.show',$proyecto->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Abrir') }}</a>

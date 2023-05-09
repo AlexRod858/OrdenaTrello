@@ -28,8 +28,8 @@
                             {{ $proyecto->titulo }}
                         </div>
                         <div class="form-group">
-                            <strong>Codigo:</strong>
-                            {{ $proyecto->codigo }}
+                            <strong>Fecha Creación:</strong>
+                            {{ $proyecto->created_at }}
                         </div>
 
                     </div>
@@ -60,9 +60,8 @@
 
                             <th>Descripcion</th>
                             <th>Estado</th>
-                            <th>Proyecto Id</th>
                             <th>Fecha Limite</th>
-                            <th>Realizador</th>
+                            <th>Asignado a</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -76,9 +75,8 @@
 
                                 <td>{{ $tarea->descripcion }}</td>
                                 <td>{{ $tarea->estado }}</td>
-                                <td>{{ $tarea->proyecto_id }}</td>
                                 <td>{{ $tarea->fecha_limite }}</td>
-                                <td>Nombre</td>
+                                <td>{{ $tarea->user_id }}</td>
                                 <td>
                                     <form action="{{ route('tareas.destroy', $tarea->id) }}" method="POST">
                                         @csrf
