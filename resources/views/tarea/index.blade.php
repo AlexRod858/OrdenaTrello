@@ -15,28 +15,6 @@
                             <span id="card_title">
                                 {{ __('Tarea') }}
                             </span>
-
-                  
-                            {{-- <div class="float-right">
-                                {{ Form::label('Código del proyecto') }}
-                                <input type="text" name="codigo">  
-                              <a href="#" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Buscar') }}
-                                </a>
-                              </div> --}}
-                              <form method="POST" action="{{ route('tareas.buscar')}}">
-                                @csrf
-                                <div class="float-right">
-                                    {{ Form::label('Código del proyecto') }}
-                                    <input type="text" name="codigo">
-                                    <button type="submit" class="btn btn-primary btn-sm float-right" data-placement="left">
-                                        {{ __('Buscar') }}
-                                    </button>
-                                </div>
-                            </form>
-                            
-                            
-                            
                                 
                         </div>
                     </div>
