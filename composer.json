@@ -13,7 +13,7 @@
         "laravel/ui": "^4.2"
     },
     "require-dev": {
-        "fakerphp/faker": "^1.9.1",
+        "fakerphp/faker": "^1.21",
         "ibex/crud-generator": "^1.4",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.18",

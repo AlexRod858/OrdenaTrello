@@ -20,6 +20,7 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
             $table->integer('tareas_realiz')->default(0);
+            $table->boolean('admin')->default(false);
         });
     }
 
