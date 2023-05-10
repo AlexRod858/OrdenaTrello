@@ -45,15 +45,32 @@ class TareaController extends Controller
     
 
 
+    // public function store(Request $request)
+    // {
+    //     request()->validate(Tarea::$rules);
+    //     dd($request->all());
+    //     $tarea = Tarea::create($request->all());
+
+    //     return redirect()->route('proyectos.show', ['proyecto' => $tarea->proyecto_id])
+    //         ->with('success', 'Tarea created successfully.');
+    // }
     public function store(Request $request)
-    {
-        request()->validate(Tarea::$rules);
+{
+    request()->validate(Tarea::$rules);
 
-        $tarea = Tarea::create($request->all());
+    $tarea = new Tarea();
+    $tarea->descripcion = $request->descripcion;
+    $tarea->estado = $request->estado;
+    $tarea->user_id = $request->realizador; // Asignar el valor de "realizador" a "user_id"
+    $tarea->proyecto_id = $request->proyecto_id;
+    $tarea->fecha_limite = $request->fecha_limite;
+    // Resto de los campos de la tarea
 
-        return redirect()->route('proyectos.show', ['proyecto' => $tarea->proyecto_id])
-            ->with('success', 'Tarea created successfully.');
-    }
+    $tarea->save();
+
+    return redirect()->route('proyectos.show', ['proyecto' => $tarea->proyecto_id])
+        ->with('success', 'Tarea created successfully.');
+}
 
  
 
