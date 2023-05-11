@@ -22,16 +22,6 @@ class TareaController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * $tareas->perPage());
     }
 
-    // public function buscar()
-    // {
-    //     $tareas = Tarea::paginate();
-
-    //     return view('tarea.index', compact('tareas'))
-    //     ->with('i', (request()->input('page', 1) - 1) * $tareas->perPage());
-    // }
-    
-
-
     
     public function create($proyecto_id)
     {

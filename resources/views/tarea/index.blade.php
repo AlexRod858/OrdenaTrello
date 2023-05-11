@@ -45,11 +45,11 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>
 
-                                            <td>{{ $tarea->proyecto_id }}</td>
+                                            <td>{{ $tarea->proyecto->titulo }}</td>
                                             <td>{{ $tarea->descripcion }}</td>
                                             <td>{{ $tarea->estado }}</td>
                                             <td>{{ $tarea->fecha_limite }}</td>
-                                            <td>{{ $tarea->user_id }}</td>
+                                            <td>{{ $tarea->proyecto->user->name }}</td>
 
                                             <td>
                                                 <form action="{{ route('tareas.destroy', $tarea->id) }}" method="POST">
