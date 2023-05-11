@@ -19,16 +19,26 @@ class ProyectoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-{
-    $user_id = Auth::id(); // obtiene el ID del usuario autenticado
+//     public function index()
+// {
+//     $user_id = Auth::id(); // obtiene el ID del usuario autenticado
     
-    $proyectos = Proyecto::where('user_id', $user_id)->paginate();
+//     $proyectos = Proyecto::where('user_id', $user_id)->paginate();
+
+//     return view('proyecto.index', compact('proyectos'))
+//         ->with('i', (request()->input('page', 1) - 1) * $proyectos->perPage());
+// }
+public function index()
+{
+    $user_id = Auth::id();
+    
+    $proyectos = Proyecto::whereHas('tareas', function ($query) use ($user_id) {
+        $query->where('user_id', $user_id);
+    })->paginate();
 
     return view('proyecto.index', compact('proyectos'))
         ->with('i', (request()->input('page', 1) - 1) * $proyectos->perPage());
 }
-
 
     /**
      * Show the form for creating a new resource.

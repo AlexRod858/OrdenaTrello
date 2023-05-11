@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Auth;
 
 class TareaController extends Controller
 {
-
+//////  ADMIN  /////
     // public function index()
     // {
     //     $tareas = Tarea::paginate();
@@ -21,7 +21,7 @@ class TareaController extends Controller
     //     return view('tarea.index', compact('tareas'))
     //         ->with('i', (request()->input('page', 1) - 1) * $tareas->perPage());
     // }
-
+///// USUARIO //////
     public function index()
     {
         $realizador = auth()->id();
