@@ -14,15 +14,25 @@ use Illuminate\Support\Facades\Auth;
 class TareaController extends Controller
 {
 
+    // public function index()
+    // {
+    //     $tareas = Tarea::paginate();
+
+    //     return view('tarea.index', compact('tareas'))
+    //         ->with('i', (request()->input('page', 1) - 1) * $tareas->perPage());
+    // }
+
     public function index()
     {
-        $tareas = Tarea::paginate();
+        $realizador = auth()->id();
+        $tareas = Tarea::where('user_id', $realizador)->paginate();
 
         return view('tarea.index', compact('tareas'))
             ->with('i', (request()->input('page', 1) - 1) * $tareas->perPage());
     }
 
-    
+
+
     public function create($proyecto_id)
     {
         $tarea = new Tarea();
