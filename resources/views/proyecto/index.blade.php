@@ -13,14 +13,23 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title" style="font-weight: bold;">
-                                {{ __('Proyectos en los que participo') }}
+                                @if (Auth::user()->admin)
+                                    {{ __('Todos los proyectos') }}
+                                @else
+                                    {{ __('Proyectos en los que participo') }}
+                                @endif
                             </span>
 
-                             {{-- <div class="float-right">
-                                <a href="{{ route('proyectos.create') }}" class="btn btn-warning btn-sm float-right"  data-placement="left">
-                                  {{ __('Nuevo Proyecto') }}
-                                </a>
-                              </div> --}}
+
+                            @if (Auth::user()->admin)
+                                <div class="float-right">
+                                    <a href="{{ route('proyectos.create') }}" class="btn btn-warning btn-sm float-right"
+                                        data-placement="left">
+                                        {{ __('Nuevo Proyecto') }}
+                                    </a>
+                                </div>
+                            @endif
+
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
@@ -32,43 +41,55 @@
                     <div class="card-body">
                         <div class="table-responsive">
                             @if (count($proyectos) > 0)
-                            <table class="table table-striped table-hover">
-                                <thead class="thead">
-                                    <tr>
-                                        <th>No</th>
-                                        
-										<th>Titulo</th>
-										<th>Id del proyecto</th>
-										<th>Fecha Creación</th>
-                                        <th>Nº Tareas</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($proyectos as $proyecto)
+                                <table class="table table-striped table-hover">
+                                    <thead class="thead">
                                         <tr>
-                                            <td>{{ ++$i }}</td>
-                                            
-											<td>{{ $proyecto->titulo }}</td>
-											<td>{{ $proyecto->id }}</td>
-											<td>{{ $proyecto->created_at }}</td>
-                                            <td>{{$proyecto->tareas->count()}}</td>
-                                            <td>
-                                                <form action="{{ route('proyectos.destroy',$proyecto->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('proyectos.show',$proyecto->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Ver proyecto') }}</a>
-                                                    {{-- <a class="btn btn-sm btn-success" href="{{ route('proyectos.edit',$proyecto->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}</a>
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Eliminar') }}</button> --}}
-                                                </form>
-                                            </td>
+                                            <th>No</th>
+
+                                            <th>Titulo</th>
+                                            <th>Id del proyecto</th>
+                                            <th>Fecha Creación</th>
+                                            <th>Nº Tareas</th>
+                                            <th></th>
                                         </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($proyectos as $proyecto)
+                                            <tr>
+                                                <td>{{ ++$i }}</td>
+
+                                                <td>{{ $proyecto->titulo }}</td>
+                                                <td>{{ $proyecto->id }}</td>
+                                                <td>{{ $proyecto->created_at }}</td>
+                                                <td>{{ $proyecto->tareas->count() }}</td>
+                                                <td>
+                                                    <form action="{{ route('proyectos.destroy', $proyecto->id) }}"
+                                                        method="POST">
+                                                        <a class="btn btn-sm btn-primary "
+                                                            href="{{ route('proyectos.show', $proyecto->id) }}"><i
+                                                                class="fa fa-fw fa-eye"></i> {{ __('Ver proyecto') }}</a>
+                                                                @if (Auth::user()->admin)
+                                                                <a class="btn btn-sm btn-success" href="{{ route('proyectos.edit',$proyecto->id) }}">
+                                                                    <i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}
+                                                                </a>
+                                                                <form action="{{ route('proyectos.destroy', $proyecto->id) }}" method="POST">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                    <button type="submit" class="btn btn-danger btn-sm">
+                                                                        <i class="fa fa-fw fa-trash"></i> {{ __('Eliminar') }}
+                                                                    </button>
+                                                                </form>
+                                                            @endif
+                                                            
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
                             @else
-            <p>No hay proyectos aún.</p>
-        @endif
+                                <p>No hay proyectos aún.</p>
+                            @endif
                         </div>
                     </div>
                 </div>

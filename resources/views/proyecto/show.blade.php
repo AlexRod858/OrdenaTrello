@@ -15,7 +15,8 @@
                         </div>
                         <div class="float-right">
                             <div class="d-inline-block">
-                                <a class="btn btn-primary" href="{{ route('proyectos.index') }}" style="float: right;"> {{ __('Volver') }}</a>
+                                <a class="btn btn-primary" href="{{ route('proyectos.index') }}" style="float: right;">
+                                    {{ __('Volver') }}</a>
                             </div>
                         </div>
                     </div>
@@ -35,7 +36,19 @@
                     </div>
 
                 </div>
-                
+
+                @if (Auth::user()->admin)
+                    <div class="text-right">
+                        <div style="float:right;">
+                            <a href="{{ route('tarea.create', ['proyecto_id' => $proyecto->id]) }}"
+                                class="btn btn-warning btn-sm float-right" data-placement="left">
+                                {{ __('Nueva Tarea') }}
+                            </a>
+                        </div>
+                    </div>
+                @endif
+
+
             </div>
         </div>
         @if ($message = Session::get('success'))
@@ -68,7 +81,7 @@
                                 <td>{{ $tarea->fecha_limite }}</td>
                                 <td>{{ $tarea->user->name }}</td>
                                 <td>
-                                    
+
                                 </td>
                             </tr>
                         @endforeach

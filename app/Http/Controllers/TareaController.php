@@ -60,10 +60,10 @@ class TareaController extends Controller
 
     $tarea = new Tarea();
     $tarea->descripcion = $request->descripcion;
-    $tarea->estado = $request->estado;
     $tarea->user_id = $request->realizador; // Asignar el valor de "realizador" a "user_id"
     $tarea->proyecto_id = $request->proyecto_id;
     $tarea->fecha_limite = $request->fecha_limite;
+    $tarea->estado = $request->estado;
     // Resto de los campos de la tarea
 
     $tarea->save();

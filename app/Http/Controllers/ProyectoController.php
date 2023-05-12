@@ -36,14 +36,19 @@ class ProyectoController extends Controller
 public function index()
 {
     $user_id = Auth::id();
-    
-    $proyectos = Proyecto::whereHas('tareas', function ($query) use ($user_id) {
-        $query->where('user_id', $user_id);
-    })->paginate();
+
+    if (Auth::user()->admin) {
+        $proyectos = Proyecto::where('user_id', $user_id)->paginate();
+    } else {
+        $proyectos = Proyecto::whereHas('tareas', function ($query) use ($user_id) {
+            $query->where('user_id', $user_id);
+        })->paginate();
+    }
 
     return view('proyecto.index', compact('proyectos'))
         ->with('i', (request()->input('page', 1) - 1) * $proyectos->perPage());
 }
+
 
     /**
      * Show the form for creating a new resource.
