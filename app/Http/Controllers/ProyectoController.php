@@ -19,6 +19,9 @@ class ProyectoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     ///////////  ADMIN  //////////
+
 //     public function index()
 // {
 //     $user_id = Auth::id(); // obtiene el ID del usuario autenticado
@@ -28,6 +31,8 @@ class ProyectoController extends Controller
 //     return view('proyecto.index', compact('proyectos'))
 //         ->with('i', (request()->input('page', 1) - 1) * $proyectos->perPage());
 // }
+
+///////////  REALIZADOR  //////////
 public function index()
 {
     $user_id = Auth::id();

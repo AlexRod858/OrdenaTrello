@@ -83,13 +83,19 @@ class TareaController extends Controller
     }
 
 
+    // public function edit($id)
+    // {
+    //     $tarea = Tarea::find($id);
+    //     return view('tarea.edit', compact('tarea'));
+    // }
     public function edit($id)
     {
         $tarea = Tarea::find($id);
-
-        return view('tarea.edit', compact('tarea'));
+        $users = User::all(); // Obtén la lista de usuarios
+    
+        return view('tarea.edit', compact('tarea', 'users'));
     }
-
+    
 
     public function update(Request $request, Tarea $tarea)
     {

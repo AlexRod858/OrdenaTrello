@@ -35,7 +35,14 @@
                     </div>
 
                 </div>
-                
+                <div class="text-right">
+                    <div style="float:right;">
+                        <a href="{{ route('tarea.create', ['proyecto_id' => $proyecto->id]) }}"
+                            class="btn btn-warning btn-sm float-right" data-placement="left">Nueva Tarea</a>
+
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
         @if ($message = Session::get('success'))
@@ -68,7 +75,12 @@
                                 <td>{{ $tarea->fecha_limite }}</td>
                                 <td>{{ $tarea->user->name }}</td>
                                 <td>
-                                    
+                                    <form action="{{ route('tareas.destroy', $tarea->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger btn-sm"><i
+                                                class="fa fa-fw fa-trash"></i> {{ __('Limpiar') }}</button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach

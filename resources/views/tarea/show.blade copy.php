@@ -19,10 +19,7 @@
                     </div>
 
                     <div class="card-body">
-                        <div class="form-group">
-                            <strong>Creador:</strong>
-                            {{ $tarea->proyecto->user->name }}
-                        </div>
+                        
                         <div class="form-group">
                             <strong>Descripcion:</strong>
                             {{ $tarea->descripcion }}
@@ -32,8 +29,8 @@
                             {{ $tarea->estado }}
                         </div>
                         <div class="form-group">
-                            <strong>Realizador:</strong>
-                            {{ $tarea->user->name }}
+                            <strong>User Id:</strong>
+                            {{ $tarea->user_id }}
                         </div>
                         <div class="form-group">
                             <strong>Proyecto Id:</strong>
