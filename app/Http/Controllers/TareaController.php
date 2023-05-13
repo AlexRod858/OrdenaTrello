@@ -13,23 +13,20 @@ use Illuminate\Support\Facades\Auth;
 
 class TareaController extends Controller
 {
-//////  ADMIN  /////
-    // public function index()
-    // {
-    //     $tareas = Tarea::paginate();
 
-    //     return view('tarea.index', compact('tareas'))
-    //         ->with('i', (request()->input('page', 1) - 1) * $tareas->perPage());
-    // }
 ///// USUARIO //////
-    public function index()
-    {
+public function index()
+{
+   
+        // Si el usuario no es un administrador, obtén solo las tareas del realizador actual
         $realizador = auth()->id();
         $tareas = Tarea::where('user_id', $realizador)->paginate();
+    
 
-        return view('tarea.index', compact('tareas'))
-            ->with('i', (request()->input('page', 1) - 1) * $tareas->perPage());
-    }
+    return view('tarea.index', compact('tareas'))
+        ->with('i', (request()->input('page', 1) - 1) * $tareas->perPage());
+}
+
 
 
 

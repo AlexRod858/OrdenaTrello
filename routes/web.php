@@ -23,13 +23,23 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::middleware(['auth'])->group(function () {
+// Rutas para el administrador
+Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
+    Route::resource('proyectos', App\Http\Controllers\AdminProyectoController::class)
+        ->names('admin.proyectos'); // Establece un nombre de ruta personalizado para el administrador
+    Route::resource('tareas', App\Http\Controllers\AdminTareaController::class)
+        ->names('admin.tareas'); // Establece un nombre de ruta personalizado para el administrador
+});
+
+
+
+// Rutas para usuarios normales
+Route::middleware('auth')->group(function () {
     Route::resource('proyectos', App\Http\Controllers\ProyectoController::class);
     Route::resource('tareas', App\Http\Controllers\TareaController::class);
 });
 
+
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/tarea/create/{proyecto_id}', [TareaController::class, 'create'])->name('tarea.create');
-// 
-Route::post('/tareas/buscar', [App\Http\Controllers\TareaController::class, 'buscar'])->name('tareas.buscar');
-//  

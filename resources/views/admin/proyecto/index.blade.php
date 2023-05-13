@@ -13,10 +13,20 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title" style="font-weight: bold;">
-                               
-                                    {{ __('Proyectos en los que participo') }}
-                               
+
+                                {{ __('Todos los proyectos') }}
+
                             </span>
+
+
+
+                            <div class="float-right">
+                                <a href="{{ route('proyectos.create') }}" class="btn btn-warning btn-sm float-right"
+                                    data-placement="left">
+                                    {{ __('Nuevo Proyecto') }}
+                                </a>
+                            </div>
+
 
                         </div>
                     </div>
@@ -42,6 +52,9 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @php
+                                            $i = 0;
+                                        @endphp
                                         @foreach ($proyectos as $proyecto)
                                             <tr>
                                                 <td>{{ ++$i }}</td>
@@ -56,19 +69,21 @@
                                                         <a class="btn btn-sm btn-primary "
                                                             href="{{ route('proyectos.show', $proyecto->id) }}"><i
                                                                 class="fa fa-fw fa-eye"></i> {{ __('Ver proyecto') }}</a>
-                                                                {{-- @if (Auth::user()->admin)
-                                                                <a class="btn btn-sm btn-success" href="{{ route('proyectos.edit',$proyecto->id) }}">
-                                                                    <i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}
-                                                                </a>
-                                                                <form action="{{ route('proyectos.destroy', $proyecto->id) }}" method="POST">
-                                                                    @csrf
-                                                                    @method('DELETE')
-                                                                    <button type="submit" class="btn btn-danger btn-sm">
-                                                                        <i class="fa fa-fw fa-trash"></i> {{ __('Eliminar') }}
-                                                                    </button>
-                                                                </form>
-                                                            @endif --}}
-                                                            
+                                                        
+                                                            <a class="btn btn-sm btn-success"
+                                                                href="{{ route('proyectos.edit', $proyecto->id) }}">
+                                                                <i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}
+                                                            </a>
+                                                            <form action="{{ route('proyectos.destroy', $proyecto->id) }}"
+                                                                method="POST">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button type="submit" class="btn btn-danger btn-sm">
+                                                                    <i class="fa fa-fw fa-trash"></i> {{ __('Eliminar') }}
+                                                                </button>
+                                                            </form>
+                                                        
+
                                                     </form>
                                                 </td>
                                             </tr>
