@@ -16,10 +16,10 @@
                         <span class="card-title">{{ __('Nueva') }} Tarea</span>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('tareas.store') }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('admin.tareas.store') }}"  role="form" enctype="multipart/form-data">
                             @csrf
 
-                            @include('tarea.form')
+                            @include('admin.tarea.form')
 
                         </form>
                     </div>

@@ -13,9 +13,9 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title" style="font-weight: bold;">
-                               
-                                    {{ __('Proyectos en los que participo') }}
-                               
+
+                                {{ __('Proyectos en los que participo') }}
+
                             </span>
 
                         </div>
@@ -56,19 +56,8 @@
                                                         <a class="btn btn-sm btn-primary "
                                                             href="{{ route('proyectos.show', $proyecto->id) }}"><i
                                                                 class="fa fa-fw fa-eye"></i> {{ __('Ver proyecto') }}</a>
-                                                                {{-- @if (Auth::user()->admin)
-                                                                <a class="btn btn-sm btn-success" href="{{ route('proyectos.edit',$proyecto->id) }}">
-                                                                    <i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}
-                                                                </a>
-                                                                <form action="{{ route('proyectos.destroy', $proyecto->id) }}" method="POST">
-                                                                    @csrf
-                                                                    @method('DELETE')
-                                                                    <button type="submit" class="btn btn-danger btn-sm">
-                                                                        <i class="fa fa-fw fa-trash"></i> {{ __('Eliminar') }}
-                                                                    </button>
-                                                                </form>
-                                                            @endif --}}
-                                                            
+
+
                                                     </form>
                                                 </td>
                                             </tr>

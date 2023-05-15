@@ -54,5 +54,9 @@ class Proyecto extends Model
         return $this->hasOne('App\Models\User', 'id', 'user_id');
     }
     
+    public function tareasCompletadas()
+    {
+        return $this->tareas()->where('estado', 'completado')->count();
+    }
 
 }

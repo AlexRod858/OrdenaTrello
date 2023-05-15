@@ -14,7 +14,7 @@
                             <span class="card-title" style="font-weight: bold;">{{ __('Detalles') }} </span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('tareas.index') }}"> {{ __('Volver') }}</a>
+                            <a class="btn btn-primary" href="{{ route('admin.tareas.index') }}"> {{ __('Volver') }}</a>
                         </div>
                     </div>
 

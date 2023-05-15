@@ -80,11 +80,7 @@ public function index()
     }
 
 
-    // public function edit($id)
-    // {
-    //     $tarea = Tarea::find($id);
-    //     return view('tarea.edit', compact('tarea'));
-    // }
+   
     public function edit($id)
     {
         $tarea = Tarea::find($id);

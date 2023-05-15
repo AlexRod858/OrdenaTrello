@@ -16,11 +16,11 @@
                         <span class="card-title" style="font-weight: bold;">{{ __('Actualizar estado') }} </span>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('tareas.update', $tarea->id) }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('admin.tareas.update', $tarea->id) }}"  role="form" enctype="multipart/form-data">
                             {{ method_field('PATCH') }}
                             @csrf
 
-                            @include('tarea.form')
+                            @include('admin.tarea.form')
 
                         </form>
                     </div>

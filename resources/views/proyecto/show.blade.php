@@ -37,16 +37,6 @@
 
                 </div>
 
-                @if (Auth::user()->admin)
-                    <div class="text-right">
-                        <div style="float:right;">
-                            <a href="{{ route('tarea.create', ['proyecto_id' => $proyecto->id]) }}"
-                                class="btn btn-warning btn-sm float-right" data-placement="left">
-                                {{ __('Nueva Tarea') }}
-                            </a>
-                        </div>
-                    </div>
-                @endif
 
 
             </div>

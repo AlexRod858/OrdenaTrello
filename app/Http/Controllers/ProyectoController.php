@@ -80,28 +80,28 @@ public function index()
     return view('proyecto.show', compact('proyecto', 'tareas'));
 }
 
-    public function edit($id)
-    {
-        $proyecto = Proyecto::find($id);
+    // public function edit($id)
+    // {
+    //     $proyecto = Proyecto::find($id);
 
-        return view('proyecto.edit', compact('proyecto'));
-    }
+    //     return view('proyecto.edit', compact('proyecto'));
+    // }
 
-    public function update(Request $request, Proyecto $proyecto)
-    {
-        request()->validate(Proyecto::$rules);
+    // public function update(Request $request, Proyecto $proyecto)
+    // {
+    //     request()->validate(Proyecto::$rules);
 
-        $proyecto->update($request->all());
+    //     $proyecto->update($request->all());
 
-        return redirect()->route('proyectos.index')
-            ->with('success', 'El proyecto se ha editado exitósamente');
-    }
+    //     return redirect()->route('proyectos.index')
+    //         ->with('success', 'El proyecto se ha editado exitósamente');
+    // }
 
-    public function destroy($id)
-    {
-        $proyecto = Proyecto::find($id)->delete();
+    // public function destroy($id)
+    // {
+    //     $proyecto = Proyecto::find($id)->delete();
 
-        return redirect()->route('proyectos.index')
-            ->with('success', 'El proyecto se ha borrado exitósamente');
-    }
+    //     return redirect()->route('proyectos.index')
+    //         ->with('success', 'El proyecto se ha borrado exitósamente');
+    // }
 }

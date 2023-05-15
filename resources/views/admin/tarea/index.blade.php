@@ -13,7 +13,7 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title" style="font-weight: bold;">
-                                {{ __('Mis tareas asignadas uuuuuhuuuuu') }}
+                                {{ __('Mis tareas creadas') }}
                             </span>
                                 
                         </div>
@@ -54,11 +54,11 @@
                                             <td>
                                                 <form action="{{ route('tareas.destroy', $tarea->id) }}" method="POST">
                                                     <a class="btn btn-sm btn-primary "
-                                                        href="{{ route('tareas.show', $tarea->id) }}"><i
+                                                        href="{{ route('admin.tareas.show', $tarea->id) }}"><i
                                                             class="fa fa-fw fa-eye"></i> {{ __('Detalles') }}</a>
                                                     <a class="btn btn-sm btn-success"
-                                                        href="{{ route('tareas.edit', $tarea->id) }}"><i
-                                                            class="fa fa-fw fa-edit"></i> {{ __('Cambiar estado') }}</a>
+                                                        href="{{ route('admin.tareas.edit', $tarea->id) }}"><i
+                                                            class="fa fa-fw fa-edit"></i> {{ __('Editar') }}</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i

@@ -11,11 +11,7 @@
             {{ Form::text('user_id', $proyecto->user_id, ['class' => 'form-control' . ($errors->has('user_id') ? ' is-invalid' : ''), 'placeholder' => 'User Id', 'readonly' => true]) }}
             {!! $errors->first('user_id', '<div class="invalid-feedback">:message</div>') !!}
         </div>
-        <!-- <div class="form-group">
-            {{ Form::label('codigo') }}
-            {{ Form::text('codigo', $proyecto->codigo, ['class' => 'form-control' . ($errors->has('codigo') ? ' is-invalid' : ''), 'placeholder' => '12345', 'readonly' => true]) }}
-            {!! $errors->first('codigo', '<div class="invalid-feedback">:message</div>') !!}
-        </div> -->
+
 
     </div>
     <div class="box-footer mt20">

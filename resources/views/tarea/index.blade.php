@@ -13,7 +13,7 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title" style="font-weight: bold;">
-                                {{ __('Mis tareas asignadas') }}
+                                {{ __('Mis Tareas Asignadas') }}
                             </span>
                                 
                         </div>

@@ -1,7 +1,7 @@
 <div class="box box-info padding-1">
     <div class="box-body">
 
-        @if (Auth::user()->admin)
+    
             <div class="form-group">
                 {{ Form::label('descripción') }}
                 {{ Form::textarea('descripcion', $tarea->descripcion, ['class' => 'form-control' . ($errors->has('descripcion') ? ' is-invalid' : ''), 'placeholder' => 'Subir logo en página principal...']) }}
@@ -11,10 +11,13 @@
                 <label for="realizador">Realizador:</label>
                 <select name="realizador" class="form-control">
                     @foreach ($users as $user)
-                        <option value="{{ $user->id }}">{{ $user->name }}</option>
+                        <option value="{{ $user->id }}" {{ $user->id == $tarea->realizador_id ? 'selected' : '' }}>
+                            {{ $user->name }}
+                        </option>
                     @endforeach
                 </select>
             </div>
+            
             <div class="form-group">
                 {{ Form::label('proyecto_id') }}
                 {{ Form::text('proyecto_id', $tarea->proyecto_id, ['class' => 'form-control' . ($errors->has('proyecto_id') ? ' is-invalid' : ''), 'readonly' => true]) }}
@@ -27,15 +30,7 @@
             </div>
 
     </div>
-@else
-    <!-- Agrega campos ocultos para mantener los valores originales de 'descripcion', 'user_id', 'proyecto_id' y 'fecha_limite' -->
-    {{ Form::hidden('descripcion', $tarea->descripcion) }}
-    {{ Form::hidden('user_id', $tarea->user_id) }}
-    {{ Form::hidden('proyecto_id', $tarea->proyecto_id) }}
-    {{ Form::hidden('fecha_limite', $tarea->fecha_limite) }}
-    {{-- <input type="hidden" name="user_id" value="{{ Auth::id() }}"> --}}
 
-    @endif
     <input type="hidden" name="user_id" value="{{ Auth::id() }}">
 
     <div class="form-group">

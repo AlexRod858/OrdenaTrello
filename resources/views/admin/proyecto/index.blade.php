@@ -21,7 +21,7 @@
 
 
                             <div class="float-right">
-                                <a href="{{ route('proyectos.create') }}" class="btn btn-warning btn-sm float-right"
+                                <a href="{{ route('admin.proyectos.create') }}" class="btn btn-warning btn-sm float-right"
                                     data-placement="left">
                                     {{ __('Nuevo Proyecto') }}
                                 </a>
@@ -48,6 +48,7 @@
                                             <th>Id del proyecto</th>
                                             <th>Fecha Creación</th>
                                             <th>Nº Tareas</th>
+                                            <th>Realizadas</th>
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -63,18 +64,19 @@
                                                 <td>{{ $proyecto->id }}</td>
                                                 <td>{{ $proyecto->created_at }}</td>
                                                 <td>{{ $proyecto->tareas->count() }}</td>
+                                                <td>{{ $proyecto->tareasCompletadas() }} / {{ $proyecto->tareas->count() }}</td>
                                                 <td>
-                                                    <form action="{{ route('proyectos.destroy', $proyecto->id) }}"
+                                                    <form action="{{ route('admin.proyectos.destroy', $proyecto->id) }}"
                                                         method="POST">
                                                         <a class="btn btn-sm btn-primary "
-                                                            href="{{ route('proyectos.show', $proyecto->id) }}"><i
+                                                            href="{{ route('admin.proyectos.show', $proyecto->id) }}"><i
                                                                 class="fa fa-fw fa-eye"></i> {{ __('Ver proyecto') }}</a>
                                                         
                                                             <a class="btn btn-sm btn-success"
-                                                                href="{{ route('proyectos.edit', $proyecto->id) }}">
+                                                                href="{{ route('admin.proyectos.edit', $proyecto->id) }}">
                                                                 <i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}
                                                             </a>
-                                                            <form action="{{ route('proyectos.destroy', $proyecto->id) }}"
+                                                            <form action="{{ route('admin.proyectos.destroy', $proyecto->id) }}"
                                                                 method="POST">
                                                                 @csrf
                                                                 @method('DELETE')

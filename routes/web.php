@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\TareaController;
+use App\Http\Controllers\AdminProyectoController;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -29,6 +30,10 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
         ->names('admin.proyectos'); // Establece un nombre de ruta personalizado para el administrador
     Route::resource('tareas', App\Http\Controllers\AdminTareaController::class)
         ->names('admin.tareas'); // Establece un nombre de ruta personalizado para el administrador
+    // 
+    Route::get('/tarea/create/{proyecto_id}', [App\Http\Controllers\AdminTareaController::class, 'create'])
+    ->name('admin.tarea.create');
+
 });
 
 
@@ -42,4 +47,3 @@ Route::middleware('auth')->group(function () {
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/tarea/create/{proyecto_id}', [TareaController::class, 'create'])->name('tarea.create');

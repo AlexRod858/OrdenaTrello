@@ -15,7 +15,8 @@
                         </div>
                         <div class="float-right">
                             <div class="d-inline-block">
-                                <a class="btn btn-primary" href="{{ route('proyectos.index') }}" style="float: right;">
+                                <a class="btn btn-primary" href="{{ route('admin.proyectos.index') }}"
+                                    style="float: right;">
                                     {{ __('Volver') }}</a>
                             </div>
                         </div>
@@ -37,16 +38,16 @@
 
                 </div>
 
-                @if (Auth::user()->admin)
-                    <div class="text-right">
-                        <div style="float:right;">
-                            <a href="{{ route('tarea.create', ['proyecto_id' => $proyecto->id]) }}"
-                                class="btn btn-warning btn-sm float-right" data-placement="left">
-                                {{ __('Nueva Tarea') }}
-                            </a>
-                        </div>
+
+                <div class="text-right">
+                    <div style="float:right;">
+                        <a href="{{ route('admin.tarea.create', ['proyecto_id' => $proyecto->id]) }}"
+                            class="btn btn-warning btn-sm float-right" data-placement="left">
+                            {{ __('Nueva Tarea') }}
+                        </a>
                     </div>
-                @endif
+                </div>
+
 
 
             </div>
@@ -57,40 +58,52 @@
             </div>
         @endif
         <div class="table-responsive">
-            @if (count($tareas))
-                <table class="table table-striped table-hover">
-                    <thead class="thead">
-                        <tr>
-                            <th>No</th>
-                            <th>Descripción</th>
-                            <th>Estado</th>
-                            <th>Fecha Límite</th>
-                            <th>Asignado a:</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @php
-                            $count = 0;
-                        @endphp
-                        @foreach ($tareas as $tarea)
-                            <tr>
-                                <td>{{ ++$count }}</td>
-                                <td>{{ $tarea->descripcion }}</td>
-                                <td>{{ $tarea->estado }}</td>
-                                <td>{{ $tarea->fecha_limite }}</td>
-                                <td>{{ $tarea->user->name }}</td>
-                                <td>
+    @if (count($tareas))
+        <table class="table table-striped table-hover">
+            <thead class="thead">
+                <tr>
+                    <th>No</th>
+                    <th>Descripción</th>
+                    <th>Estado</th>
+                    <th>Fecha Límite</th>
+                    <th>Asignado a:</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @php
+                    $count = 0;
+                @endphp
+                @foreach ($tareas as $tarea)
+                    <tr>
+                        <td>{{ ++$count }}</td>
+                        <td>{{ $tarea->descripcion }}</td>
+                        <td>{{ $tarea->estado }}</td>
+                        <td>{{ $tarea->fecha_limite }}</td>
+                        <td>{{ $tarea->user->name }}</td>
+                        <td>
+                            <div class="btn-group">
+                                <a class="btn btn-sm btn-success" href="{{ route('proyectos.edit', $proyecto->id) }}">
+                                    <i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}
+                                </a>
+                                <form action="{{ route('proyectos.destroy', $proyecto->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm">
+                                        <i class="fa fa-fw fa-trash"></i> {{ __('Eliminar') }}
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    @else
+        <p>No hay tareas para este proyecto.</p>
+    @endif
+</div>
 
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            @else
-                <p>No hay tareas para este proyecto.</p>
-            @endif
-        </div>
         </div>
         </div>
     </section>

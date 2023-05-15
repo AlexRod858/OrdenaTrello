@@ -1,33 +1,7 @@
 <div class="box box-info padding-1">
     <div class="box-body">
 
-        @if (Auth::user()->admin)
-            <div class="form-group">
-                {{ Form::label('descripción') }}
-                {{ Form::textarea('descripcion', $tarea->descripcion, ['class' => 'form-control' . ($errors->has('descripcion') ? ' is-invalid' : ''), 'placeholder' => 'Subir logo en página principal...']) }}
-                {!! $errors->first('descripcion', '<div class="invalid-feedback">:message</div>') !!}
-            </div>
-            <div class="form-group">
-                <label for="realizador">Realizador:</label>
-                <select name="realizador" class="form-control">
-                    @foreach ($users as $user)
-                        <option value="{{ $user->id }}">{{ $user->name }}</option>
-                    @endforeach
-                </select>
-            </div>
-            <div class="form-group">
-                {{ Form::label('proyecto_id') }}
-                {{ Form::text('proyecto_id', $tarea->proyecto_id, ['class' => 'form-control' . ($errors->has('proyecto_id') ? ' is-invalid' : ''), 'readonly' => true]) }}
-                {!! $errors->first('proyecto_id', '<div class="invalid-feedback">:message</div>') !!}
-            </div>
-            <div class="form-group">
-                {{ Form::label('fecha_limite') }}
-                {{ Form::date('fecha_limite', $tarea->fecha_limite, ['class' => 'form-control' . ($errors->has('fecha_limite') ? ' is-invalid' : '')]) }}
-                {!! $errors->first('fecha_limite', '<div class="invalid-feedback">:message</div>') !!}
-            </div>
-
-    </div>
-@else
+        
     <!-- Agrega campos ocultos para mantener los valores originales de 'descripcion', 'user_id', 'proyecto_id' y 'fecha_limite' -->
     {{ Form::hidden('descripcion', $tarea->descripcion) }}
     {{ Form::hidden('user_id', $tarea->user_id) }}
@@ -35,7 +9,7 @@
     {{ Form::hidden('fecha_limite', $tarea->fecha_limite) }}
     {{-- <input type="hidden" name="user_id" value="{{ Auth::id() }}"> --}}
 
-    @endif
+    
     <input type="hidden" name="user_id" value="{{ Auth::id() }}">
 
     <div class="form-group">
