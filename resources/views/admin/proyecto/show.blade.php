@@ -83,10 +83,10 @@
                         <td>{{ $tarea->user->name }}</td>
                         <td>
                             <div class="btn-group">
-                                <a class="btn btn-sm btn-success" href="{{ route('proyectos.edit', $proyecto->id) }}">
+                                <a class="btn btn-sm btn-success" href="{{ route('admin.tareas.edit', $proyecto->id) }}">
                                     <i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}
                                 </a>
-                                <form action="{{ route('proyectos.destroy', $proyecto->id) }}" method="POST">
+                                <form action="{{ route('admin.proyectos.destroy', $proyecto->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm">
