@@ -62,8 +62,8 @@
         <table class="table table-striped table-hover">
             <thead class="thead">
                 <tr>
-                    <th>No</th>
-                    <th>Descripción</th>
+                    <th>No.</th>
+                    <th>Descripción de las Tareas</th>
                     <th>Estado</th>
                     <th>Fecha Límite</th>
                     <th>Asignado a:</th>

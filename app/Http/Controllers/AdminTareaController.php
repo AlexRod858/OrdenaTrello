@@ -75,4 +75,12 @@ class AdminTareaController extends Controller
         return redirect()->route('admin.tareas.index')
             ->with('success', 'Tarea updated successfully');
     }
+
+    public function destroy($id)
+    {
+        $tarea = Tarea::find($id)->delete();
+
+        return redirect()->route('admin.tareas.index')
+            ->with('success', 'Tarea deleted successfully');
+    }
 }

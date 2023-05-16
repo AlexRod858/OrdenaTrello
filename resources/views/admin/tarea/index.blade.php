@@ -15,7 +15,7 @@
                             <span id="card_title" style="font-weight: bold;">
                                 {{ __('Mis tareas creadas') }}
                             </span>
-                                
+
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
@@ -29,13 +29,14 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                        <th>No</th>
+                                        <th>No.</th>
 
-                                        <th>Título</th>
-                                        <th>Descripción</th>
+                                        <th>Nombre de Proyecto</th>
+                                        <th>Descripción de la Tarea</th>
                                         <th>Estado</th>
                                         <th>Fecha Límite</th>
-                                        <th>Creador</th>
+                                        {{-- <th>Creador</th> --}}
+                                        <th>Asignado a:</th>
 
                                         <th></th>
                                     </tr>
@@ -49,10 +50,11 @@
                                             <td>{{ $tarea->descripcion }}</td>
                                             <td>{{ $tarea->estado }}</td>
                                             <td>{{ $tarea->fecha_limite }}</td>
-                                            <td>{{ $tarea->proyecto->user->name }}</td>
-
+                                            {{-- <td>{{ $tarea->proyecto->user->name }}</td> --}}
+                                            <td>{{ $tarea->user->name }}</td>
                                             <td>
-                                                <form action="{{ route('tareas.destroy', $tarea->id) }}" method="POST">
+                                                <form action="{{ route('admin.tareas.destroy', $tarea->id) }}"
+                                                    method="POST">
                                                     <a class="btn btn-sm btn-primary "
                                                         href="{{ route('admin.tareas.show', $tarea->id) }}"><i
                                                             class="fa fa-fw fa-eye"></i> {{ __('Detalles') }}</a>

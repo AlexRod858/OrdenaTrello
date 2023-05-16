@@ -14,7 +14,7 @@
 
                             <span id="card_title" style="font-weight: bold;">
 
-                                {{ __('Todos los proyectos') }}
+                                {{ __('Todos mis proyectos') }}
 
                             </span>
 
@@ -42,9 +42,9 @@
                                 <table class="table table-striped table-hover">
                                     <thead class="thead">
                                         <tr>
-                                            <th>No</th>
+                                            <th>No.</th>
 
-                                            <th>Titulo</th>
+                                            <th>Nombre de Proyecto</th>
                                             <th>Id del proyecto</th>
                                             <th>Fecha Creación</th>
                                             <th>Nº Tareas</th>

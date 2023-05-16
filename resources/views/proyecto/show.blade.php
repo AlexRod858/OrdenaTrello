@@ -51,7 +51,7 @@
                 <table class="table table-striped table-hover">
                     <thead class="thead">
                         <tr>
-                            <th>No</th>
+                            <th>No.</th>
                             <th>Descripción</th>
                             <th>Estado</th>
                             <th>Fecha Límite</th>
