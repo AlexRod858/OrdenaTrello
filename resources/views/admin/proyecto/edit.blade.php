@@ -10,7 +10,11 @@
             <div class="col-md-12">
 
                 @includeif('partials.errors')
-
+                <div class="d-inline-block">
+                    <a class="btn btn-primary" href="{{ route('admin.proyectos.index') }}"
+                        style="float: right;">
+                        {{ __('Volver') }}</a>
+                </div>
                 <div class="card card-default">
                     <div class="card-header">
                         <span class="card-title">{{ __('Editar') }} Proyecto</span>

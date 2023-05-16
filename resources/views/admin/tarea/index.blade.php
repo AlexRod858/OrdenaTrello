@@ -35,8 +35,8 @@
                                         <th>Descripción de la Tarea</th>
                                         <th>Estado</th>
                                         <th>Fecha Límite</th>
-                                        {{-- <th>Creador</th> --}}
                                         <th>Asignado a:</th>
+                                        {{-- <th>Creador</th> --}}
 
                                         <th></th>
                                     </tr>
@@ -50,8 +50,8 @@
                                             <td>{{ $tarea->descripcion }}</td>
                                             <td>{{ $tarea->estado }}</td>
                                             <td>{{ $tarea->fecha_limite }}</td>
-                                            {{-- <td>{{ $tarea->proyecto->user->name }}</td> --}}
                                             <td>{{ $tarea->user->name }}</td>
+                                            {{-- <td>{{ $tarea->proyecto->user->name }}</td> --}}
                                             <td>
                                                 <form action="{{ route('admin.tareas.destroy', $tarea->id) }}"
                                                     method="POST">

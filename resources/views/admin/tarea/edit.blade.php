@@ -11,9 +11,12 @@
 
                 @includeif('partials.errors')
 
+                <div class="float-right">
+                    <a class="btn btn-primary" href="{{ route('admin.tareas.index') }}"> {{ __('Volver') }}</a>
+                </div>
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title" style="font-weight: bold;">{{ __('Actualizar estado') }} </span>
+                        <span class="card-title" style="font-weight: bold;">{{ __('Editar Tarea') }} </span>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('admin.tareas.update', $tarea->id) }}"  role="form" enctype="multipart/form-data">

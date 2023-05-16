@@ -15,6 +15,6 @@
 
     </div>
     <div class="box-footer mt20">
-        <button type="submit" class="btn btn-primary">{{ __('Confirmar') }}</button>
+        <button type="submit" class="btn btn-success">{{ __('Confirmar') }}</button>
     </div>
 </div>

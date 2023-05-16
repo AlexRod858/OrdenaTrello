@@ -8,13 +8,13 @@
     <section class="content container-fluid">
         <div class="row">
             <div class="col-md-12">
+                <div class="float-right">
+                    <a class="btn btn-primary" href="{{ route('admin.tareas.index') }}"> {{ __('Volver') }}</a>
+                </div>
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
                             <span class="card-title" style="font-weight: bold;">{{ __('Detalles') }} </span>
-                        </div>
-                        <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('admin.tareas.index') }}"> {{ __('Volver') }}</a>
                         </div>
                     </div>
 

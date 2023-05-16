@@ -10,7 +10,9 @@
             <div class="col-md-12">
 
                 @includeif('partials.errors')
-
+                <div class="float-right">
+                    <a class="btn btn-primary" href="{{ route('tareas.index') }}"> {{ __('Volver') }}</a>
+                </div>
                 <div class="card card-default">
                     <div class="card-header">
                         <span class="card-title" style="font-weight: bold;">{{ __('Actualizar estado') }} </span>
