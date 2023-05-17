@@ -34,7 +34,7 @@
                                         <tr>
                                             <th>No.</th>
 
-                                            <th>Titulo</th>
+                                            <th>Titulo del Proyecto</th>
                                             <th>Id del proyecto</th>
                                             <th>Fecha Creación</th>
                                             <th>Nº Tareas</th>

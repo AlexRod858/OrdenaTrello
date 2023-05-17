@@ -8,16 +8,16 @@
     <section class="content container-fluid">
         <div class="row">
             <div class="col-md-12">
+                <div class="float-right">
+                    <div class="d-inline-block">
+                        <a class="btn btn-primary" href="{{ route('proyectos.index') }}" style="float: right;">
+                            {{ __('Volver') }}</a>
+                    </div>
+                </div>
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title" style="font-weight: bold;">{{ __('Detalles') }} </span>
-                        </div>
-                        <div class="float-right">
-                            <div class="d-inline-block">
-                                <a class="btn btn-primary" href="{{ route('proyectos.index') }}" style="float: right;">
-                                    {{ __('Volver') }}</a>
-                            </div>
+                            <span class="card-title" style="font-weight: bold;">{{ __('Detalles del Proyecto') }} </span>
                         </div>
                     </div>
 
@@ -52,7 +52,7 @@
                     <thead class="thead">
                         <tr>
                             <th>No.</th>
-                            <th>Descripción</th>
+                            <th>Descripción de la tarea</th>
                             <th>Estado</th>
                             <th>Fecha Límite</th>
                             <th>Asignado a:</th>

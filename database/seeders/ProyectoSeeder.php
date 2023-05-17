@@ -15,12 +15,13 @@ class ProyectoSeeder extends Seeder
     public function run(): void
     {
         $faker = FakerFactory::create('es_ES');
-        $users = User::pluck('id'); // Obtener los IDs de todos los usuarios existentes
+        $users = User::where('admin', true)->pluck('id');; // Obtener los IDs de todos los usuarios existentes
 
         for ($i = 0; $i < 20; $i++) {
             Proyecto::create([
                 'titulo' => $faker->sentence,
                 'user_id' => $faker->randomElement($users),
+                'descripcion' => $faker->sentence,
             ]);
         }
     }

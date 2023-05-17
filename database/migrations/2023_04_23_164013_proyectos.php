@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('titulo');
             $table->unsignedBigInteger('user_id'); //creador
             // $table->Integer('codigo');
+            $table->string('descripcion')->nullable();
             $table->timestamps();
         
             // Restricción de clave foránea

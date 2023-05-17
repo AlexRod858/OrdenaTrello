@@ -19,7 +19,7 @@
                         <form method="POST" action="{{ route('admin.proyectos.store') }}"  role="form" enctype="multipart/form-data">
                             @csrf
 
-                            @include('proyecto.form')
+                            @include('admin.proyecto.form')
 
                         </form>
                     </div>

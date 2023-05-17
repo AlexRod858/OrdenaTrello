@@ -25,6 +25,7 @@ class Proyecto extends Model
     static $rules = [
 		'titulo' => 'required',
 		'user_id' => 'required',
+        'descripcion' => 'required',
 		// 'codigo' => 'required',
     ];
 
