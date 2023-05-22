@@ -5,17 +5,18 @@ namespace App\Http\Controllers;
 use App\Models\Proyecto;
 use App\Models\Tarea;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class AdminProyectoController extends Controller
 {
     public function index()
     {
-        // Lógica para mostrar todas las tareas para el administrador
-
-        // Obtén los proyectos del administrador
-        $proyectos = Proyecto::where('user_id', auth()->id())->paginate();
-
-        return view('admin.proyecto.index', compact('proyectos'));
+        // Lógica para obtener los proyectos del administrador
+        $proyectos = Proyecto::where('user_id', auth()->id())->get();
+    
+        return Inertia::render('admin/proyectos/index', [
+            'proyectos' => $proyectos
+        ]);
     }
 
     public function create()
