@@ -22,6 +22,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
 Auth::routes();
 
 // Rutas para el administrador

@@ -16,7 +16,6 @@
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.bunny.net">
 <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
-
 </head>
 
 <body class="bg-dark">
@@ -28,42 +27,44 @@
         </div>
     </header>
     {{-- /////////////////////////////////////////////////////// --}}
-    <div class="container">
+    <div class="container pt-5">
 
         <div class="row align-items-center">
             {{--  --}}
             {{-- PRIMER CUADRADO --}}
-            <div class="col" style="display: flex; align-items: center;">
-                <div class="card bg-transparent border-0 text-white">
+            <div class="col">
+                <div class="card bg-transparent border-0 text-white ">
                     <div class="card-body">
                         <div>
-                            <h1 class="font-weight-bold" style="font-size: 3rem; color: orange;">OrdenaTrello</h1>
-                            <h2 class="text-white">OrdenaTrello te ayuda a organizarte en el trabajo en tu día a día</h2>
+                            <h1 class="font-weight-bold" style="font-size: 3rem; color: coral;">OrdenaTrello</h1>
+                            <h2 class="text-white">OrdenaTrello te ayuda a organizarte en el trabajo en tu día a día
+                            </h2>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
 
             {{--  --}}
             {{-- SEGUNDO CUADRADO --}}
             <div class="col pt-5">
-                <div class="card bg-transparent border border-5 border-orange">
+                <div class="card bg-transparent border border-5">
                     <div class="card-body">
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
-                            <h1 class="text-warning">INICIAR SESIÓN</h1>
+                            <h1 style="font-size: 3rem; color: coral;">INICIAR SESIÓN</h1>
                             <div class="mb-3">
                                 <input id="email" type="email"
                                     class="form-control @error('email') is-invalid @enderror" name="email"
-                                    value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email">
+                                    value="{{ old('email') }}" required autocomplete="email" autofocus
+                                    placeholder="Email">
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
-            
+
                             <div class="mb-3">
                                 <input id="password" type="password"
                                     class="form-control @error('password') is-invalid @enderror" name="password"
@@ -74,15 +75,16 @@
                                     </span>
                                 @enderror
                             </div>
-            
+
                             <div class="mb-3">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember"
                                         {{ old('remember') ? 'checked' : '' }}>
-                                    <label class="form-check-label" style="color: orange;" for="remember">{{ __('Recuérdame') }}</label>
+                                    <label class="form-check-label" style="color:coral;"
+                                        for="remember">{{ __('Recuérdame') }}</label>
                                 </div>
                             </div>
-            
+
                             <div class="mb-0">
                                 <button type="submit" class="btn btn-primary">{{ __('Entrar') }}</button>
                                 @if (Route::has('password.request'))
@@ -94,8 +96,8 @@
                     </div>
                 </div>
             </div>
-            
-            
+
+
             {{--  --}}
         </div>
     </div>
