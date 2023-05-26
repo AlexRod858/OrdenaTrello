@@ -5,28 +5,33 @@
 @endsection
 
 @section('content')
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="card">
-                    <div class="card-header">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
+<div class="container-fluid border-top border-bottom mb-5 mt-2">
+    <div class="row">
+        <div class="col-sm-6">
+            <h1 style="color: coral;">MIS TAREAS ASIGNADAS</h1>
+        </div>
+        <div class="col-sm-6 d-flex justify-content-end align-self-center">
+            <a href="{{ route('admin.proyectos.create') }}" class="btn btn-sm" data-placement="left"style="background-color: coral; color: white">
+                {{ __('Nuevo Proyecto') }}
+            </a>
+        </div>
+    </div>
+</div>
 
-                            <span id="card_title" style="font-weight: bold;">
-                                {{ __('Mis Tareas Asignadas') }}
-                            </span>
-                                
-                        </div>
+
+    <div class="row mt-5 pt-5">
+        <div class="col-sm-12">
+            <div class="card">
+
+                @if ($message = Session::get('success'))
+                    <div class="alert alert-success">
+                        <p>{{ $message }}</p>
                     </div>
-                    @if ($message = Session::get('success'))
-                        <div class="alert alert-success">
-                            <p>{{ $message }}</p>
-                        </div>
-                    @endif
+                @endif
 
-                    <div class="card-body">
+                    <div class="card-body bg-dark">
                         <div class="table-responsive">
-                            <table class="table table-striped table-hover">
+                            <table class="table table-dark table-hover">
                                 <thead class="thead">
                                     <tr>
                                         <th>No.</th>
@@ -53,16 +58,13 @@
 
                                             <td>
                                                 <form action="{{ route('tareas.destroy', $tarea->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary "
-                                                        href="{{ route('tareas.show', $tarea->id) }}"><i
-                                                            class="fa fa-fw fa-eye"></i> {{ __('Detalles') }}</a>
-                                                    <a class="btn btn-sm btn-success"
-                                                        href="{{ route('tareas.edit', $tarea->id) }}"><i
-                                                            class="fa fa-fw fa-edit"></i> {{ __('Cambiar estado') }}</a>
-                                                    {{-- @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i
-                                                            class="fa fa-fw fa-trash"></i> {{ __('Delete') }}</button> --}}
+                                                    <a href="{{ route('tareas.show', $tarea->id) }}" class="btn btn-icon btn-light">
+                                                        <i class="fas fa-eye"></i>
+                                                    </a>
+                                                
+                                                    <a href="{{ route('tareas.edit', $tarea->id) }}" class="btn btn-icon btn-light">
+                                                        <i class="fas fa-edit"></i>
+                                                    </a>
                                                 </form>
                                             </td>
                                         </tr>
