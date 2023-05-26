@@ -13,13 +13,20 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
+    <!-- Font Awesome CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+<!-- Font Awesome JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+
+
     <!-- Scripts -->
     @viteReactRefresh
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
-<body>
+<body class="bg-dark">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm rounded">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/home') }}">
                     <img src="https://www.corralejo.info/images/ordenatech-servicios-informaticos-fuerteventura-fb.jpg" width="200" height="80" alt="">
@@ -87,7 +94,11 @@
                 </div>
             </div>
         </nav>
-
+        <style>
+            .rounded {
+                border-radius: 10px; /* Ajusta el valor de acuerdo al radio de las esquinas que desees */
+            }
+        </style>
         <main class="py-4">
             @yield('content')
         </main>
