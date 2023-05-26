@@ -20,7 +20,7 @@
 
 <body class="bg-dark">
     {{-- //////////////////////////  HEADER  ///////////////////////////// --}}
-    <header class="bg-light p-4">
+    <header class="bg-light p-4 mb-5">
         <div class="container img-fluid max-width: 100% text-center">
             <img src="https://tienda.ordenatech.es/img/tienda-online-logo-1673433375.jpg" alt=""
                 class="img-fluid mx-auto" style="max-width: 50%;">

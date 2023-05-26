@@ -5,41 +5,50 @@
 @endsection
 
 @section('content')
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="card">
-                    <div class="card-header">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
+<div class="container-fluid border-top border-bottom mb-5 mt-2">
+    <div class="row">
+        <div class="col-sm-6">
+            <h1 style="color: coral;">MIS TAREAS CREADAS</h1>
+        </div>
+        <div class="col-sm-6 d-flex justify-content-end align-self-center">
+            <a href="{{ route('admin.proyectos.create') }}" class="btn btn-sm" data-placement="left"style="background-color: coral; color: white">
+                {{ __('Nuevo Proyecto') }}
+            </a>
+        </div>
+    </div>
+</div>
 
-                            <span id="card_title" style="font-weight: bold;">
-                                {{ __('Mis tareas creadas') }}
-                            </span>
 
-                        </div>
+    <div class="row mt-5 pt-5">
+        <div class="col-sm-12">
+            <div class="card">
+
+                @if ($message = Session::get('success'))
+                    <div class="alert alert-success">
+                        <p>{{ $message }}</p>
                     </div>
-                    @if ($message = Session::get('success'))
-                        <div class="alert alert-success">
-                            <p>{{ $message }}</p>
-                        </div>
-                    @endif
+                @endif
 
-                    <div class="card-body">
+                    <div class="card-body bg-dark">
                         <div class="table-responsive">
-                            <table class="table table-striped table-hover">
+                            <table class="table table-dark table-hover">
                                 <thead class="thead">
                                     <tr>
-                                        <th>No.</th>
-
-                                        <th>Nombre de Proyecto</th>
-                                        <th>Descripción de la Tarea</th>
-                                        <th>Estado</th>
-                                        <th>Fecha Límite</th>
-                                        <th>Asignado a:</th>
+                                        <th class="coral-color">No.</th>
+                                        <th class="coral-color">Nombre de Proyecto</th>
+                                        <th class="coral-color">Descripción de la Tarea</th>
+                                        <th class="coral-color">Estado</th>
+                                        <th class="coral-color">Fecha Límite</th>
+                                        <th class="coral-color">Asignado a:</th>
                                         {{-- <th>Creador</th> --}}
 
                                         <th></th>
                                     </tr>
+                                    <style>
+                                        .coral-color {
+                                            color: coral;
+                                        }
+                                    </style>
                                 </thead>
                                 <tbody>
                                     @foreach ($tareas as $tarea)
@@ -53,18 +62,22 @@
                                             <td>{{ $tarea->user->name }}</td>
                                             {{-- <td>{{ $tarea->proyecto->user->name }}</td> --}}
                                             <td>
-                                                <form action="{{ route('admin.tareas.destroy', $tarea->id) }}"
-                                                    method="POST">
-                                                    <a class="btn btn-sm btn-primary "
-                                                        href="{{ route('admin.tareas.show', $tarea->id) }}"><i
-                                                            class="fa fa-fw fa-eye"></i> {{ __('Detalles') }}</a>
-                                                    <a class="btn btn-sm btn-success"
-                                                        href="{{ route('admin.tareas.edit', $tarea->id) }}"><i
-                                                            class="fa fa-fw fa-edit"></i> {{ __('Editar') }}</a>
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i
-                                                            class="fa fa-fw fa-trash"></i> {{ __('Delete') }}</button>
+                                                <form action="{{ route('admin.tareas.destroy', $tarea->id) }}" method="POST">
+                                                    <a href="{{ route('admin.tareas.show', $tarea->id) }}" class="btn btn-icon btn-light">
+                                                        <i class="fas fa-eye"></i>
+                                                    </a>
+                                                
+                                                    <a href="{{ route('admin.tareas.edit', $tarea->id) }}" class="btn btn-icon btn-light">
+                                                        <i class="fas fa-edit"></i>
+                                                    </a>
+                                                
+                                                    <form action="{{ route('admin.tareas.destroy', $tarea->id) }}" method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-icon btn-light">
+                                                            <i class="fas fa-trash-alt"></i>
+                                                        </button>
+                                                    </form>
                                                 </form>
                                             </td>
                                         </tr>
