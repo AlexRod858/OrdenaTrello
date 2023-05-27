@@ -5,33 +5,30 @@
 @endsection
 
 @section('content')
-
-
-<div class="container-fluid border-top border-bottom mb-5 mt-2">
-    <div class="row">
-        <div class="col-sm-6">
-            <h1 style="color: coral;">MIS PROYECTOS</h1>
+    @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
         </div>
-        <div class="col-sm-6 d-flex justify-content-end align-self-center">
-            <a href="{{ route('admin.proyectos.create') }}" class="btn btn-sm" data-placement="left"style="background-color: coral; color: white">
-                {{ __('Nuevo Proyecto') }}
-            </a>
-        </div>
-    </div>
-</div>
-
-
-    <div class="row mt-5 pt-5">
+    @endif
+    <div class="row pt-2">
         <div class="col-sm-12">
-            <div class="card">
-
-                @if ($message = Session::get('success'))
-                    <div class="alert alert-success">
-                        <p>{{ $message }}</p>
+            <div class="container-fluid border-top border-bottom mb-5">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h1 style="color: coral;">MIS PROYECTOS</h1>
                     </div>
-                @endif
-
-                <div class="card-body bg-dark">
+                    <div class="col-sm-6 d-flex justify-content-end align-self-center">
+                        <a href="{{ route('admin.proyectos.create') }}" class="btn btn-sm"
+                            data-placement="left"style="background-color: coral; color: white">
+                            {{ __('Nuevo Proyecto') }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card text-white bg-dark">
+            <div class="card-header">
+                <div class="card-body bg-dark pt-5">
                     <div class="table-responsive">
                         @if (count($proyectos) > 0)
                             <table class="table table-dark table-hover">
@@ -66,16 +63,20 @@
                                             <td>{{ $proyecto->tareasCompletadas() }} / {{ $proyecto->tareas->count() }}
                                             </td>
                                             <td>
-                                                <form action="{{ route('admin.proyectos.destroy', $proyecto->id) }}" method="POST">
-                                                    <a href="{{ route('admin.proyectos.show', $proyecto->id) }}" class="btn btn-icon btn-light">
+                                                <form action="{{ route('admin.proyectos.destroy', $proyecto->id) }}"
+                                                    method="POST">
+                                                    <a href="{{ route('admin.proyectos.show', $proyecto->id) }}"
+                                                        class="btn btn-icon btn-light">
                                                         <i class="fas fa-eye"></i>
                                                     </a>
-                                                
-                                                    <a href="{{ route('admin.proyectos.edit', $proyecto->id) }}" class="btn btn-icon btn-light">
+
+                                                    <a href="{{ route('admin.proyectos.edit', $proyecto->id) }}"
+                                                        class="btn btn-icon btn-light">
                                                         <i class="fas fa-edit"></i>
                                                     </a>
-                                                
-                                                    <form action="{{ route('admin.proyectos.destroy', $proyecto->id) }}" method="POST">
+
+                                                    <form action="{{ route('admin.proyectos.destroy', $proyecto->id) }}"
+                                                        method="POST">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit" class="btn btn-icon btn-light">
@@ -83,18 +84,18 @@
                                                         </button>
                                                     </form>
                                                 </form>
-                                                
-                                                
-                                                
-                                                
-                                               
+
+
+
+
+
                                             </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
                             </table>
                         @else
-                            <p>No hay proyectos aún.</p>
+                            <p class="text-light">No hay proyectos aún.</p>
                         @endif
                     </div>
                 </div>
