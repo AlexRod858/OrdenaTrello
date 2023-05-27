@@ -14,23 +14,6 @@ use Illuminate\Support\Facades\Auth;
  */
 class ProyectoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-
-     ///////////  ADMIN  //////////
-
-//     public function index()
-// {
-//     $user_id = Auth::id(); // obtiene el ID del usuario autenticado
-    
-//     $proyectos = Proyecto::where('user_id', $user_id)->paginate();
-
-//     return view('proyecto.index', compact('proyectos'))
-//         ->with('i', (request()->input('page', 1) - 1) * $proyectos->perPage());
-// }
 
 ///////////  REALIZADOR  //////////
 public function index()
@@ -50,11 +33,6 @@ public function index()
 }
 
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $proyecto = new Proyecto();

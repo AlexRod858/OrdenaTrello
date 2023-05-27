@@ -12,13 +12,14 @@
     
     <input type="hidden" name="user_id" value="{{ Auth::id() }}">
 
-    <div class="form-group">
+    <div class="form-group"style="color: coral;">
         {{ Form::label('estado', 'Estado') }}
         {{ Form::select('estado', ['pendiente' => 'Pendiente', 'en proceso' => 'En Proceso', 'completado' => 'Completado'], $tarea->estado, ['class' => 'form-control' . ($errors->has('estado') ? ' is-invalid' : ''), 'placeholder' => 'Seleccione una opción']) }}
         {!! $errors->first('estado', '<div class="invalid-feedback">:message</div>') !!}
     </div>
-    <div class="box-footer mt20">
-        <button type="submit" class="btn btn-success">{{ __('Confirmar') }}</button>
+
+    <div class="box-footer mt-2">
+        <button type="submit" class="btn" style="background-color: coral; color: white">{{ __('Confirmar') }}</button>
     </div>
 
 

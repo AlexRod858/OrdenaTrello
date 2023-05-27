@@ -5,42 +5,37 @@
 @endsection
 
 @section('content')
-<div class="container-fluid border-top border-bottom mb-5 mt-2">
-    <div class="row">
-        <div class="col-sm-6">
-            <h1 style="color: coral;">PROYECTOS EN LOS QUE PARTICIPO</h1>
-        </div>
-        <div class="col-sm-6 d-flex justify-content-end align-self-center">
-            <a href="{{ route('admin.proyectos.create') }}" class="btn btn-sm" data-placement="left"style="background-color: coral; color: white">
-                {{ __('Nuevo Proyecto') }}
-            </a>
-        </div>
-    </div>
-</div>
-
-
-    <div class="row mt-5 pt-5">
-        <div class="col-sm-12">
-            <div class="card">
-
-                @if ($message = Session::get('success'))
+@if ($message = Session::get('success'))
                     <div class="alert alert-success">
                         <p>{{ $message }}</p>
                     </div>
                 @endif
 
-                <div class="card-body bg-dark">
+    <div class="row t-5">
+        <div class="col-sm-12">
+            <div class="card text-white bg-dark">
+                <div class="card-header">
+                    <div class="container-fluid border-top border-bottom mb-5">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h1 style="color: coral;">PROYECTOS EN LOS QUE PARTICIPO</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-body bg-dark pt-5" >
                     <div class="table-responsive">
                         @if (count($proyectos) > 0)
-                            <table class="table table-dark table-hover">
+                            <table class="table table-dark table-hover border border-light">
                                 <thead class="thead">
                                     <tr>
-                                            <th>No.</th>
+                                            <th style="color: coral">No.</th>
 
-                                            <th>Titulo del Proyecto</th>
-                                            <th>Id del proyecto</th>
-                                            <th>Fecha Creación</th>
-                                            <th>Nº Tareas</th>
+                                            <th style="color: coral">Titulo del Proyecto</th>
+                                            <th style="color: coral">Id del proyecto</th>
+                                            <th style="color: coral">Fecha Creación</th>
+                                            <th style="color: coral">Nº Tareas</th>
                                             <th></th>
                                         </tr>
                                     </thead>

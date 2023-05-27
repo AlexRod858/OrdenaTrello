@@ -10,14 +10,27 @@
             <div class="col-md-12">
 
                 @includeif('partials.errors')
-                <div class="float-right">
-                    <a class="btn btn-primary" href="{{ route('tareas.index') }}"> {{ __('Volver') }}</a>
-                </div>
-                <div class="card card-default">
+                <div class="card card text-white bg-dark mb-3">
                     <div class="card-header">
-                        <span class="card-title" style="font-weight: bold;">{{ __('Actualizar estado') }} </span>
+
+                        <div class="container-fluid border-top border-bottom mb-5 mt-2">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <h1 style="color: coral;">ACTUALIZAR ESTADO</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="d-inline-block">
+                                <a class="btn btn-primary" href="{{ route('tareas.index') }}"
+                                    style="float: right;">
+                                    {{ __('Volver') }}</a>
+                            </div>
+
+                        </div>
+
                     </div>
-                    <div class="card-body">
+                    <div class="card-body border border-light">
                         <form method="POST" action="{{ route('tareas.update', $tarea->id) }}"  role="form" enctype="multipart/form-data">
                             {{ method_field('PATCH') }}
                             @csrf
@@ -26,6 +39,7 @@
 
                         </form>
                     </div>
+
                 </div>
             </div>
         </div>

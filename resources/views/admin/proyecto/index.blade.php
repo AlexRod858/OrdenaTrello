@@ -27,6 +27,7 @@
                             </div>
                         </div>
                     </div>
+                </div>
                     <div class="card-body bg-dark pt-5">
                         <div class="table-responsive">
                             @if (count($proyectos) > 0)
@@ -95,7 +96,7 @@
                             @endif
                         </div>
                     </div>
-                </div>
+                
                 {!! $proyectos->links() !!}
             </div>
         </div>

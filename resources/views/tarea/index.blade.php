@@ -5,42 +5,39 @@
 @endsection
 
 @section('content')
-<div class="container-fluid border-top border-bottom mb-5 mt-2">
-    <div class="row">
-        <div class="col-sm-6">
-            <h1 style="color: coral;">MIS TAREAS ASIGNADAS</h1>
-        </div>
-        <div class="col-sm-6 d-flex justify-content-end align-self-center">
-            <a href="{{ route('admin.proyectos.create') }}" class="btn btn-sm" data-placement="left"style="background-color: coral; color: white">
-                {{ __('Nuevo Proyecto') }}
-            </a>
-        </div>
-    </div>
+
+@if ($message = Session::get('success'))
+<div class="alert alert-success">
+    <p>{{ $message }}</p>
 </div>
+@endif
 
-
-    <div class="row mt-5 pt-5">
+    <div class="row ">
         <div class="col-sm-12">
-            <div class="card">
-
-                @if ($message = Session::get('success'))
-                    <div class="alert alert-success">
-                        <p>{{ $message }}</p>
+            <div class="card text-white bg-dark">
+                <div class="card-header">
+                    <div class="container-fluid border-top border-bottom mb-5">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h1 style="color: coral;">MIS TAREAS ASIGNADAS</h1>
+                            </div>
+                        </div>
                     </div>
-                @endif
+                </div>
 
-                    <div class="card-body bg-dark">
+
+                    <div class="card-body bg-dark  pt-5">
                         <div class="table-responsive">
-                            <table class="table table-dark table-hover">
+                            <table class="table table-dark table-hover border border-light">
                                 <thead class="thead">
                                     <tr>
-                                        <th>No.</th>
+                                        <th style="color: coral">No.</th>
 
-                                        <th>Título</th>
-                                        <th>Descripción</th>
-                                        <th>Estado</th>
-                                        <th>Fecha Límite</th>
-                                        <th>Creador</th>
+                                        <th style="color: coral">Título</th>
+                                        <th style="color: coral">Descripción</th>
+                                        <th style="color: coral">Estado</th>
+                                        <th style="color: coral">Fecha Límite</th>
+                                        <th style="color: coral">Creador</th>
 
                                         <th></th>
                                     </tr>

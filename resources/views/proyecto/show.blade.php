@@ -5,31 +5,46 @@
 @endsection
 
 @section('content')
+    @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
+        </div>
+    @endif
     <section class="content container-fluid">
         <div class="row">
             <div class="col-md-12">
                 <div class="float-right">
-                    <div class="d-inline-block">
-                        <a class="btn btn-primary" href="{{ route('proyectos.index') }}" style="float: right;">
-                            {{ __('Volver') }}</a>
-                    </div>
                 </div>
-                <div class="card">
+                <div class="card card text-white bg-dark mb-3">
                     <div class="card-header">
-                        <div class="float-left">
-                            <span class="card-title" style="font-weight: bold;">{{ __('Detalles del Proyecto') }} </span>
+
+                        <div class="container-fluid border-top border-bottom mb-5 mt-2">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <h1 style="color: coral;">DETALLES DEL PROYECTO</h1>
+                                </div>
+                            </div>
                         </div>
+                        <div class="col-md-12">
+                            <div class="d-inline-block">
+                                <a class="btn btn-primary" href="{{ route('proyectos.index') }}"
+                                    style="float: right;">
+                                    {{ __('Volver') }}</a>
+                            </div>
+
+                        </div>
+
                     </div>
 
 
-                    <div class="card-body">
+                    <div class="card-body border border-light">
 
                         <div class="form-group">
-                            <strong>Titulo:</strong>
+                            <strong class="coral-color">Titulo:</strong>
                             {{ $proyecto->titulo }}
                         </div>
                         <div class="form-group">
-                            <strong>Fecha Creación:</strong>
+                            <strong class="coral-color">Fecha Creación:</strong>
                             {{ $proyecto->created_at }}
                         </div>
 
@@ -41,23 +56,24 @@
 
             </div>
         </div>
-        @if ($message = Session::get('success'))
-            <div class="alert alert-success">
-                <p>{{ $message }}</p>
-            </div>
-        @endif
+
         <div class="table-responsive">
             @if (count($tareas))
-                <table class="table table-striped table-hover">
+                <table class="table table-dark table-hover border border-light">
                     <thead class="thead">
                         <tr>
-                            <th>No.</th>
-                            <th>Descripción de la tarea</th>
-                            <th>Estado</th>
-                            <th>Fecha Límite</th>
-                            <th>Asignado a:</th>
-                            <th></th>
+                            <th class="coral-color">No.</th>
+                            <th class="coral-color">Descripción de la tarea</th>
+                            <th class="coral-color">Estado</th>
+                            <th class="coral-color">Fecha Límite</th>
+                            <th class="coral-color">Asignado a:</th>
+                            <th class="coral-color"></th>
                         </tr>
+                        <style>
+                            .coral-color {
+                                color: coral;
+                            }
+                        </style>
                     </thead>
                     <tbody>
                         @php
