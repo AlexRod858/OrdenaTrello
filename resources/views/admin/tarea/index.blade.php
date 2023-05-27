@@ -10,25 +10,22 @@
             <p>{{ $message }}</p>
         </div>
     @endif
-    <div class="container-fluid border-top border-bottom mb-5 mt-2">
-        <div class="row">
-            <div class="col-sm-6">
-                <h1 style="color: coral;">MIS TAREAS CREADAS</h1>
-            </div>
-            <div class="col-sm-6 d-flex justify-content-end align-self-center">
-                <a href="{{ route('admin.proyectos.create') }}" class="btn btn-sm"
-                    data-placement="left"style="background-color: coral; color: white">
-                    {{ __('Nuevo Proyecto') }}
-                </a>
-            </div>
-        </div>
-    </div>
-    <div class="row mt-5 pt-5">
+    <div class="row">
         <div class="col-sm-12">
-            <div class="card">
-                <div class="card-body bg-dark">
+            <div class="card text-white bg-dark">
+                <div class="card-header">
+
+                    <div class="container-fluid border-top border-bottom mb-5 mt-2">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h1 style="color: coral;">MIS TAREAS CREADAS</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body bg-dark pt-5">
                     <div class="table-responsive">
-                        <table class="table table-dark table-hover">
+                        <table class="table table-dark table-hover border border-light">
                             <thead class="thead">
                                 <tr>
                                     <th class="coral-color">No.</th>

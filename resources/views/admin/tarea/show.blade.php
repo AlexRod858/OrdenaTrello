@@ -6,47 +6,56 @@
 
 @section('content')
     <section class="content container-fluid">
-        <div class="row">
+        
             <div class="col-md-12">
-                <div class="float-right">
+                
+                <div class="card card text-white bg-dark mb-3">
+                    <div class="card-header">
+                        <div class="container-fluid border-top border-bottom mb-5 mt-2">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <h1 style="color: coral;">DETALLES DE LA TAREA</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="float-right">
                     <a class="btn btn-primary" href="{{ route('admin.tareas.index') }}"> {{ __('Volver') }}</a>
                 </div>
-                <div class="card">
-                    <div class="card-header">
-                        <div class="float-left">
-                            <span class="card-title" style="font-weight: bold;">{{ __('Detalles') }} </span>
-                        </div>
                     </div>
 
-                    <div class="card-body">
+                    <div class="card-body border border-light">
                         <div class="form-group">
-                            <strong>Creador:</strong>
+                            <strong class="coral-color">Creador:</strong>
                             {{ $tarea->proyecto->user->name }}
                         </div>
                         <div class="form-group">
-                            <strong>Descripcion:</strong>
+                            <strong class="coral-color">Descripcion:</strong>
                             {{ $tarea->descripcion }}
                         </div>
                         <div class="form-group">
-                            <strong>Estado:</strong>
+                            <strong class="coral-color">Estado:</strong>
                             {{ $tarea->estado }}
                         </div>
                         <div class="form-group">
-                            <strong>Realizador:</strong>
+                            <strong class="coral-color">Realizador:</strong>
                             {{ $tarea->user->name }}
                         </div>
                         <div class="form-group">
-                            <strong>Proyecto Id:</strong>
+                            <strong class="coral-color">Proyecto Id:</strong>
                             {{ $tarea->proyecto_id }}
                         </div>
                         <div class="form-group">
-                            <strong>Fecha Limite:</strong>
+                            <strong class="coral-color">Fecha Limite:</strong>
                             {{ $tarea->fecha_limite }}
                         </div>
-
+                        <style>
+                            .coral-color {
+                                color: coral;
+                            }
+                        </style>
                     </div>
                 </div>
             </div>
-        </div>
+        
     </section>
 @endsection

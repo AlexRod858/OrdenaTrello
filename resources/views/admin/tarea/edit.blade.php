@@ -10,15 +10,25 @@
             <div class="col-md-12">
 
                 @includeif('partials.errors')
+                <div class="card text-white bg-dark ">
 
-                <div class="float-right">
-                    <a class="btn btn-primary" href="{{ route('admin.tareas.index') }}"> {{ __('Volver') }}</a>
-                </div>
-                <div class="card card-default">
-                    <div class="card-header">
-                        <span class="card-title" style="font-weight: bold;">{{ __('Editar Tarea') }} </span>
+
+                    <div class="card-header ">
+                        <div class="container-fluid border-top border-bottom mb-5 mt-2 ">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <h1 style="color: coral;">EDITAR TAREA</h1>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-body">
+                    <div class="d-inline-block">
+                        <a class="btn btn-primary" href="{{ route('admin.tareas.index') }}"
+                            >
+                            {{ __('Volver') }}</a>
+                    </div>
+                    <div class="card-body border border-light mt-4">
                         <form method="POST" action="{{ route('admin.tareas.update', $tarea->id) }}"  role="form" enctype="multipart/form-data">
                             {{ method_field('PATCH') }}
                             @csrf
