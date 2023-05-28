@@ -68,13 +68,23 @@ class AdminTareaController extends Controller
 
     public function update(Request $request, Tarea $tarea)
     {
-        request()->validate(Tarea::$rules);
-
-        $tarea->update($request->all());
-
-        return redirect()->route('admin.tareas.index')
-            ->with('success', 'Tarea updated successfully');
+        $request->validate([
+            // Validación de los campos requeridos y otras reglas si es necesario
+        ]);
+    
+        $tarea->descripcion = $request->descripcion;
+        $tarea->estado = $request->estado;
+        $tarea->user_id = $request->realizador; // Asignar el realizador seleccionado
+        $tarea->proyecto_id = $request->proyecto_id;
+        $tarea->fecha_limite = $request->fecha_limite;
+    
+        $tarea->save();
+    
+        return redirect()->route('admin.tareas.index')->with('success', 'Tarea actualizada correctamente');
     }
+    
+
+    
 
     public function destroy($id)
     {

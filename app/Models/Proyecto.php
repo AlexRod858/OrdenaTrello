@@ -36,7 +36,7 @@ class Proyecto extends Model
      *
      * @var array
      */
-    protected $fillable = ['titulo','user_id'];
+    protected $fillable = ['titulo','user_id','descripcion'];
 
 
     /**

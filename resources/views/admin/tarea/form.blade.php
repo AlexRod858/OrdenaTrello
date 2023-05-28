@@ -7,16 +7,18 @@
                 {{ Form::textarea('descripcion', $tarea->descripcion, ['class' => 'form-control' . ($errors->has('descripcion') ? ' is-invalid' : ''), 'placeholder' => 'Subir logo en página principal...']) }}
                 {!! $errors->first('descripcion', '<div class="invalid-feedback">:message</div>') !!}
             </div>
+
             <div class="form-group">
-                <label for="realizador">Realizador:</label>
+                <label for="user_id">Realizador:</label>
                 <select name="realizador" class="form-control">
                     @foreach ($users as $user)
-                        <option value="{{ $user->id }}" {{ $user->id == $tarea->realizador_id ? 'selected' : '' }}>
+                        <option value="{{ $user->id }}" {{ $user->id == $tarea->user_id ? 'selected' : '' }}>
                             {{ $user->name }}
                         </option>
                     @endforeach
                 </select>
             </div>
+            
             
             <div class="form-group">
                 {{ Form::label('proyecto_id') }}

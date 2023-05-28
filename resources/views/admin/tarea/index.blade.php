@@ -49,7 +49,7 @@
                                         <td>{{ ++$i }}</td>
 
                                         <td>{{ $tarea->proyecto->titulo }}</td>
-                                        <td>{{ $tarea->descripcion }}</td>
+                                        <td>{{ strlen($tarea->descripcion) > 40 ? substr($tarea->descripcion, 0, 40) . '...' : $tarea->descripcion }}</td>
                                         <td>{{ $tarea->estado }}</td>
                                         <td>{{ $tarea->fecha_limite }}</td>
                                         <td>{{ $tarea->user->name }}</td>
