@@ -51,7 +51,7 @@ class AdminProyectoController extends Controller
         $proyecto->update($request->all());
 
         return redirect()->route('admin.proyectos.index')
-            ->with('success', 'El proyecto se ha editado exitósamente');
+            ->with('success', 'El proyecto se ha editado con éxito');
     }
 
 
@@ -62,7 +62,7 @@ class AdminProyectoController extends Controller
         $proyecto = Proyecto::create($request->all());
 
         return redirect()->route('admin.proyectos.index')
-            ->with('success', 'El proyecto se ha creado exitósamente.');
+            ->with('success', 'El proyecto se ha creado con éxito.');
     }
 
 
@@ -71,7 +71,7 @@ class AdminProyectoController extends Controller
         $proyecto = Proyecto::find($id)->delete();
 
         return redirect()->route('admin.proyectos.index')
-            ->with('success', 'El proyecto se ha borrado exitósamente');
+            ->with('success', 'El proyecto se ha borrado con éxito');
     }
 
 

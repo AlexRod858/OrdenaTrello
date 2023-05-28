@@ -47,7 +47,7 @@ class ProyectoController extends Controller
         $proyecto = Proyecto::create($request->all());
 
         return redirect()->route('proyectos.index')
-            ->with('success', 'El proyecto se ha creado exitósamente.');
+            ->with('success', 'El proyecto se ha creado con éxito.');
     }
 
 

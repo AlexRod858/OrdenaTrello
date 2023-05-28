@@ -80,7 +80,7 @@ class AdminTareaController extends Controller
     
         $tarea->save();
     
-        return redirect()->route('admin.tareas.index')->with('success', 'Tarea actualizada correctamente');
+        return redirect()->route('admin.tareas.index')->with('success', 'Tarea actualizada con éxito');
     }
     
 
@@ -91,6 +91,6 @@ class AdminTareaController extends Controller
         $tarea = Tarea::find($id)->delete();
 
         return redirect()->route('admin.tareas.index')
-            ->with('success', 'Tarea deleted successfully');
+            ->with('success', 'Tarea eliminada con éxito');
     }
 }
