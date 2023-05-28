@@ -22,8 +22,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-
 Auth::routes();
 
 // Rutas para el administrador
@@ -32,22 +30,21 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
         ->names('admin.proyectos'); // Establece un nombre de ruta personalizado para el administrador
     Route::resource('tareas', App\Http\Controllers\AdminTareaController::class)
         ->names('admin.tareas'); // Establece un nombre de ruta personalizado para el administrador
-    // 
-    Route::get('/tarea/create/{proyecto_id}', [App\Http\Controllers\AdminTareaController::class, 'create'])
-    ->name('admin.tarea.create');
     
-});
-
-
+    Route::get('/tarea/create/{proyecto_id}', [App\Http\Controllers\AdminTareaController::class, 'create'])
+        ->name('admin.tarea.create');
+    
+    });
 
 // Rutas para usuarios normales
 Route::middleware('auth')->group(function () {
     Route::resource('proyectos', App\Http\Controllers\ProyectoController::class);
     Route::resource('tareas', App\Http\Controllers\TareaController::class);
+    
+    Route::get('/home', [App\Http\Controllers\ProyectoController::class, 'contador'])->name('home2');
 });
 
+Route::fallback(function () {
+    return redirect('/');
+});
 
-Route::get('/home', [App\Http\Controllers\AdminProyectoController::class, 'contador'])->name('home');
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Auth::routes();

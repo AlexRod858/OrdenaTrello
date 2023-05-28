@@ -81,32 +81,38 @@ class AdminProyectoController extends Controller
         return $this->tareas()->where('estado', 'completado')->count();
     }
 
-    public function contador()
-    {
-        // Obtén los proyectos del administrador
-        $proyectos = Proyecto::where('user_id', auth()->id())->paginate();
+
+
+    // public function contador()
+    // {
+    //     // Obtén los proyectos del administrador
+    //     $proyectos = Proyecto::where('user_id', auth()->id())->paginate();
     
-        // Contador de tareas pendientes
-        $tareasPendientes = 0;
+    //     // Contador de tareas pendientes
+    //     $tareasPendientes = 0;
     
-        // Contador de tareas completadas en las últimas 24 horas
-        $tareasCompletadas24h = 0;
+    //     // Contador de tareas completadas en las últimas 24 horas
+    //     $tareasCompletadas24h = 0;
     
-        // Recorrer cada proyecto
-        foreach ($proyectos as $proyecto) {
-            // Contar las tareas pendientes
-            $tareasPendientes += $proyecto->tareas()->where('estado', '!=', 'completado')->count();
-            
-            // Contar las tareas completadas en las últimas 24 horas
-            $tareasCompletadas24h += $proyecto->tareas()
-                ->where('estado', 'completado')
-                ->whereBetween('updated_at', [Carbon::now()->subDay(), Carbon::now()])
-                ->count();
-        }
-        
-        // Devolver la vista con los datos
-        return view('home', compact('proyectos', 'tareasPendientes', 'tareasCompletadas24h'));
-    }
+    //     // Recorrer cada proyecto
+    //     foreach ($proyectos as $proyecto) {
+    //         // Contar las tareas pendientes
+    //         $tareasPendientes += $proyecto->tareas()->where('estado', '!=', 'completado')->count();
+    
+    //         // Contar las tareas completadas en las últimas 24 horas
+    //         $tareasCompletadas24h += $proyecto->tareas()
+    //             ->where('estado', 'completado')
+    //             ->whereBetween('updated_at', [Carbon::now()->subDay(), Carbon::now()])
+    //             ->count();
+    //     }
+    
+    //     // Devolver la vista con los datos
+    //     if (auth()->user()->admin) {
+    //         return view('home', compact('proyectos', 'tareasPendientes', 'tareasCompletadas24h'));
+    //     } else {
+    //         return view('home2', compact('proyectos', 'tareasPendientes', 'tareasCompletadas24h'));
+    //     }
+    // }
     
     
 }

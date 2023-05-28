@@ -60,5 +60,17 @@ class Tarea extends Model
 
     }
     
+    protected static function boot()
+    {
+        parent::boot();
 
+        static::saving(function ($tarea) {
+            // Verificar si el estado de la tarea ha cambiado a "completado"
+            if ($tarea->isDirty('estado') && $tarea->estado === 'completado') {
+                // Incrementar el valor de tareas_realiz del usuario
+                $user = $tarea->user;
+                $user->increment('tareas_realiz');
+            }
+        });
+    }
 }
