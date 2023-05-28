@@ -16,11 +16,10 @@
                 <div class="card-header">
 
                     <div class="container-fluid border-top border-bottom mb-5 mt-2">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <h1 style="color: coral;">MIS TAREAS CREADAS</h1>
-                            </div>
-                        </div>
+                        {{--  --}}
+                        <div id="tareasCreadas"></div>
+                        {{--  --}}
+
                     </div>
                 </div>
                 <div class="card-body bg-dark pt-5">

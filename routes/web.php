@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\TareaController;
 use App\Http\Controllers\AdminProyectoController;
-
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -22,7 +21,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+
+// ////////////////////////
+
+// Auth::routes();
+Auth::routes(['verify' => true]);
+// 
+
 
 // Rutas para el administrador
 Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
@@ -30,17 +35,17 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
         ->names('admin.proyectos'); // Establece un nombre de ruta personalizado para el administrador
     Route::resource('tareas', App\Http\Controllers\AdminTareaController::class)
         ->names('admin.tareas'); // Establece un nombre de ruta personalizado para el administrador
-    
+
     Route::get('/tarea/create/{proyecto_id}', [App\Http\Controllers\AdminTareaController::class, 'create'])
         ->name('admin.tarea.create');
-    
-    });
+    // Ruta de registro
+});
 
 // Rutas para usuarios normales
 Route::middleware('auth')->group(function () {
     Route::resource('proyectos', App\Http\Controllers\ProyectoController::class);
     Route::resource('tareas', App\Http\Controllers\TareaController::class);
-    
+
     Route::get('/home', [App\Http\Controllers\ProyectoController::class, 'contador'])->name('home2');
 });
 
@@ -48,3 +53,15 @@ Route::fallback(function () {
     return redirect('/');
 });
 
+
+// //////////////////////////
+// Ruta de inicio de sesión
+Route::get('/login', function () {
+    return redirect('/');
+})->name('login');
+
+// Ruta de registro
+Route::get('/register', function () {
+    return redirect('/');
+})->name('register');
+// //////////////////////
