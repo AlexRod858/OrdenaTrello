@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Proyecto;
 use App\Models\Tarea;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+
 
 class AdminProyectoController extends Controller
 {
@@ -84,16 +86,26 @@ class AdminProyectoController extends Controller
         // Obtén los proyectos del administrador
         $proyectos = Proyecto::where('user_id', auth()->id())->paginate();
     
-        // Inicializar contador de tareas pendientes
+        // Contador de tareas pendientes
         $tareasPendientes = 0;
     
-        // Recorrer cada proyecto y contar las tareas pendientes
+        // Contador de tareas completadas en las últimas 24 horas
+        $tareasCompletadas24h = 0;
+    
+        // Recorrer cada proyecto
         foreach ($proyectos as $proyecto) {
+            // Contar las tareas pendientes
             $tareasPendientes += $proyecto->tareas()->where('estado', '!=', 'completado')->count();
+            
+            // Contar las tareas completadas en las últimas 24 horas
+            $tareasCompletadas24h += $proyecto->tareas()
+                ->where('estado', 'completado')
+                ->whereBetween('updated_at', [Carbon::now()->subDay(), Carbon::now()])
+                ->count();
         }
         
-        // Devuelve la vista con los datos
-        return view('home', compact('proyectos', 'tareasPendientes'));
+        // Devolver la vista con los datos
+        return view('home', compact('proyectos', 'tareasPendientes', 'tareasCompletadas24h'));
     }
     
     
