@@ -12,7 +12,7 @@
                     <div class="text-center bg-warning rounded-circle" style="height: 150px; width: 150px; background-color: rgb(245, 119, 35)!important; margin-top: -75px; display: flex; align-items: center; justify-content: center;">
                         <span style="font-size: 72px; font-weight: bold;">5</span>
                     </div>
-                    <h3 class="mt-3">TAREAS PENDIENTES</h3>
+                    <h3 class="mt-3 text-center">TAREAS PENDIENTES</h3>
                 </div>
             </div>
         </div>

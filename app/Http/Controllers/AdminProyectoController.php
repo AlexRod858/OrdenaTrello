@@ -14,7 +14,6 @@ class AdminProyectoController extends Controller
 
         // Obtén los proyectos del administrador
         $proyectos = Proyecto::where('user_id', auth()->id())->paginate();
-
         return view('admin.proyecto.index', compact('proyectos'));
     }
 
@@ -79,4 +78,23 @@ class AdminProyectoController extends Controller
     {
         return $this->tareas()->where('estado', 'completado')->count();
     }
+
+    public function contador()
+    {
+        // Obtén los proyectos del administrador
+        $proyectos = Proyecto::where('user_id', auth()->id())->paginate();
+    
+        // Inicializar contador de tareas pendientes
+        $tareasPendientes = 0;
+    
+        // Recorrer cada proyecto y contar las tareas pendientes
+        foreach ($proyectos as $proyecto) {
+            $tareasPendientes += $proyecto->tareas()->where('estado', '!=', 'completado')->count();
+        }
+        
+        // Devuelve la vista con los datos
+        return view('home', compact('proyectos', 'tareasPendientes'));
+    }
+    
+    
 }

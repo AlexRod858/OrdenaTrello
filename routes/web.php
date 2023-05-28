@@ -35,7 +35,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     // 
     Route::get('/tarea/create/{proyecto_id}', [App\Http\Controllers\AdminTareaController::class, 'create'])
     ->name('admin.tarea.create');
-
+    
 });
 
 
@@ -47,9 +47,7 @@ Route::middleware('auth')->group(function () {
 });
 
 
+Route::get('/home', [App\Http\Controllers\AdminProyectoController::class, 'contador'])->name('home');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
