@@ -16,3 +16,4 @@ import './components/Example';
 import './components/TareasCreadas';
 import './components/TareasAsignadas';
 import './components/ProyectosParticipo';
+import './components/MisProyectos';
